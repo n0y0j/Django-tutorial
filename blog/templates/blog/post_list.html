@@ -8,7 +8,7 @@
   <!-- blog.veiws.post_detail -->
   <!-- post.pk는 데이터베이스의 각 레코드를 식별하는 키본키 -->
   <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-  <p>{{ post.text|linebreaksbr }}</p>
+  <a href="{% url 'post_detail' pk=post.pk %}"><img src="{{ post.photo.url }}" alt="" width="400px"></a>
   <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
 </div>
 {% endfor %}

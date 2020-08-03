@@ -10,6 +10,7 @@ class Post(models.Model):
     #models.ForeignKey - 다른 모델에 대한 링크를 의미 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    photo = models.ImageField(null=True, upload_to="")
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)

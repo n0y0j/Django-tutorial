@@ -15,7 +15,7 @@ def post_detail(request, pk):
 @login_required
 def post_new(request):
   if request.method == "POST":
-    form = PostForm(request.POST)
+    form = PostForm(request.POST, request.FILES)
     # 모든 필드에 값이 있는지를 판단
     if form.is_valid():
       # 폼을 저장하고 작성자를 추가, commit=False는 넘겨진 데이터를 바로 Post 모델에 저장하지 말 것

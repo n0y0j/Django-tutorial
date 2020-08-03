@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
   path('', views.post_list, name='post_list'),
@@ -12,3 +14,6 @@ urlpatterns = [
   path('post/<int:pk>/comment', views.add_comment_to_post, name="add_comment_to_post"),
   path('comment/<int:pk>/remove', views.comment_remove, name="comment_remove"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
